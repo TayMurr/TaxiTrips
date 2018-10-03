@@ -5,7 +5,7 @@ import numpy as np
 
 def open_clean_file(filename):
 #with open("chicago-taxi-rides-2016/chicago_taxi_trips_2016_01.csv") as f:
-    pddata = pd.read_csv(filename, usecols = ["trip_seconds", "trip_miles", "fare", "tips", "tolls", "trip_total","payment_type"], nrows = 1000)
+    pddata = pd.read_csv(filename, usecols = ["trip_seconds", "trip_miles", "fare", "tips", "tolls", "trip_total","payment_type"], nrows = 500)
     # 1 for HOME, 0 for AWAY
     i = 0
     for data_obj in pddata["payment_type"]:
@@ -28,9 +28,9 @@ def open_clean_file(filename):
 
 if __name__ == "__main__":
 
-    train_data = open_clean_file("data/chicago_taxi_trips_2016_01.csv")
+    train_data = open_clean_file("data/chicago_taxi_trips_2016_02.csv")
 
-    train_data.to_csv("chicago_taxi_trip_january.csv")
+    train_data.to_csv("chicago_taxi_trip_TEST.csv")
 
 
 

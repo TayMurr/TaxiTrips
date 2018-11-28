@@ -1,5 +1,5 @@
 import sys
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import BernoulliNB
 import csv
 import numpy as np
 if __name__ == "__main__":
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     X = np.array(X)
     Y = np.array(Y)
 
-    model = GaussianNB()
+    model = BernoulliNB()
     model.fit(X, Y)
 
 

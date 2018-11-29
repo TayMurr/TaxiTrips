@@ -11,7 +11,7 @@ if __name__ == "__main__":
         reader = csv.reader(csvfile, delimiter=',')
         for i, row in enumerate(reader):
             if i is not 0:
-                data_row = [float(num) for num in row[1:7]]
+                data_row = [float(num) for num in row[1:1]]
                 X.append(data_row)
                 Y.append(row[7])
     X = np.array(X)
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         reader = csv.reader(csvfile, delimiter=',')
         for i, row in enumerate(reader):
             if i is not 0:
-                data_row = [float(num) for num in row[1:7]]
+                data_row = [float(num) for num in row[1:1]]
                 prediction = model.predict([data_row])[0]
                 if prediction == row[7]:
                     if prediction == '1':

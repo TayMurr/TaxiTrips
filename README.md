@@ -4,6 +4,8 @@ This repository is made up of the data and the code used for project.
 The sections below present helpful info for running and understanding
 the dataset.
 
+The repo is public at https://github.com/TayMurr/TaxiTrips
+
 # Dependencies and Python version
 The version of python we used for this project was Python 2.7.15
 

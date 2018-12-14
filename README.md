@@ -44,7 +44,7 @@ The files that train and test classifiers are the following:
 
 Any of the classifiers in this repo can be ran as follows:
 
-python <classifier>.py
+python \<classifier\>.py
 
 They all print the accuracy. Some are also set to print the
 accuracy, precision, recall, and F1 score.
@@ -73,7 +73,7 @@ python rfc_heatmap.py
 
 creditvscash.py displas the barchart for each of the payment types
 
-run as followS:
+run as follows:
 
 python creditvscash.py
 

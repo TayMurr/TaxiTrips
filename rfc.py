@@ -41,26 +41,53 @@ if __name__ == "__main__":
     X_test = np.array(X_test)
     Y_test = np.array(Y_test)
 
+    
+    clf = RandomForestClassifier(n_estimators=90)
 
-    #create pipeline
-    scores = []
-    yticklabels = []
-    for i in range(1, 250, 10):
-        score_r  = []
-        for j in range(1, 7):
-            pipe = Pipeline(steps=[('PCA', PCA(n_components=j)), ('RFC', RandomForestClassifier(n_estimators=i))])
-            pipe.fit(X, Y)
-            predictions = pipe.predict(X_test)
-            score_r.append(accuracy_score(Y_test, predictions))
-        scores.append(score_r)
-        yticklabels.append(i)
+    clf.fit(X, Y)
 
-    scores = np.asarray(scores)
 
-    print scores.shape
+    score = clf.score(X_test, Y_test)
 
-    f,ax = plt.subplots(figsize=(18, 18))
-    sns.heatmap(scores, cmap = 'Greys', annot=True, linewidths=.5, fmt= '.3f', xticklabels=[1, 2, 3, 4, 5, 6], yticklabels=yticklabels, ax=ax)
-    plt.xlabel("n_components")
-    plt.ylabel("n_estimators")
-    plt.show()
+    print score
+
+    feature_importances = clf.feature_importances_
+    print feature_importances
+    
+    
+    TP=0
+    TN=0
+    FP=0
+    FN=0
+    total = 0
+    with open("chicago_taxi_trip_TEST.csv", 'rb') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for i, row in enumerate(reader):
+            if i is not 0:
+                data_row = [float(num) for num in row[1:7]]
+                prediction = clf.predict([data_row])[0]
+                if prediction == row[7]:
+                    if prediction == '1':
+                        TP += 1
+                    else:
+                        TN += 1
+                else:
+                    if prediction == '1' and row[7] == '0':
+                        FP += 1
+                    elif prediction == '0' and row[7] == '1':
+                        FN += 1
+            total += 1
+    accuracy = float(TP+TN)/total
+    precision = float(TP)/(TP+FP)
+    recall = float(TP)/(TP+FN)
+    F1 = float(2*precision*recall)/(precision+recall)
+
+    print ("Accuracy = {}".format(accuracy))
+    print ("Precision = {}".format(precision))
+    print ("Recall = {}".format(recall))
+    print ("F1 Score = {}".format(F1))
+
+    print "TP: {}".format(TP)
+    print "TN: {}".format(TN)
+    print "FP: {}".format(FP)
+    print "FN: {}".format(FN) 

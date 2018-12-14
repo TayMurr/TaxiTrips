@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     print model.score(X_test, Y_test)
 
-    """ TP=0
+    TP=0
     TN=0
     FP=0
     FN=0
@@ -72,6 +72,6 @@ if __name__ == "__main__":
     print ("Accuracy = {}".format(accuracy))
     print ("Precision = {}".format(precision))
     print ("Recall = {}".format(recall))
-    print ("F1 Score = {}".format(F1))"""
+    print ("F1 Score = {}".format(F1))
 
     

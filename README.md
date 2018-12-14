@@ -26,23 +26,27 @@ Rides 2016. The entire dataset is much to large for us to fit on
 our computers so that is why we use a subset. The files used for 
 cleaning the data and reformmating it are cleanup.py and datacleaning.py 
 
+Note: These clean files  are included to show you how we cleaned the data. The entire Kaggle
+dataset is much too big for the submission. If you download the Kaggle dataset 
+and store the csv is a directory called data then you can run them.
+
 # Classifiers
 
-GaussianNB.py			diff_feats.py
-dtree.py
-bernoulliNB.py			first_run.py
-multinomial_naive_bayes.py
-nbm_diff_params.py
-cleanup.py			rfc.py
-complement_bayes.py		rfc_1.py
-creditvscash.py	
-datacleanup.py
-
+The files that train and test classifiers are the following:
+- GaussianNB.py
+- dtree.py (the decision tree)
+- bernoulliNB.py
+- multinomial_naive_bayes.py
+- complement_bayes.py
+- rfc.py (random forest classifier)
 
 Any of the classifiers in this repo can be ran as follows:
 
 python <classifier>.py
 
+They all print the accuracy. Some are also set to print the
+accuracy, precision, recall, and F1 score.
+ 
 # Visualizations
 
 ### viz.py
@@ -52,4 +56,23 @@ and it also prints the explained variances from PCA
 
 run the program as follows:
 
-python viz.py 
+python viz.py
+
+### rfc_heatmap.py
+
+rfc_heatmap.py displays the heatmap of accuracies across
+n components in PCA and n estimators in the RFC.
+
+run the program as follows:
+
+python rfc_heatmap.py
+
+### creditvscash.py
+
+creditvscash.py displas the barchart for each of the payment types
+
+run as followS:
+
+python creditvscash.py
+
+ 

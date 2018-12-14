@@ -7,6 +7,12 @@ import sklearn as skl
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
+"""
+This file plts the distributions by
+each feature. It also prints the
+explained variances from pca of the data.
+"""
+
 if __name__ == "__main__":
 
     X = []
@@ -48,18 +54,10 @@ if __name__ == "__main__":
 
     plt.show()
 
-    """pca = PCA()
+    pca = PCA()
     pca.fit(X)
 
-    plt.figure(1, figsize=(14, 13))
-    plt.clf()
-    plt.axes([.2, .2, .7, .7])
-    plt.plot(pca.explained_variance_ratio_, linewidth=2)
-    plt.axis('tight')
-    plt.xlabel('n_components')
-    plt.ylabel('explained_variance_ratio_')
-    plt.show()
-    print X.shape"""
+    print pca.explained_variance_ratio_
 
 
 
